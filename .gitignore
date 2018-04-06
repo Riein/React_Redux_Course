@@ -2,6 +2,9 @@
 Thumbs.db
 ehthumbs.db
 
+# Node modules
+./react-basics/node_modules
+
 # Folder config file
 Desktop.ini
 
