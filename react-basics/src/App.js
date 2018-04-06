@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
+import Person from './Person/Person';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      persons: [
+        {name: "Jake"}, 
+        {name: "Denny"},
+        {name: "Wendys"}
+      ]
+    }
+  }
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Testing Applications</h1>
+        <button>Switch Name</button>
+        <Person name={this.state.persons[1].name}/>
+        <Person name="Den"/>
+        <Person name="Who Song" >My Hobbies include kayaking</Person>
       </div>
     );
   }
