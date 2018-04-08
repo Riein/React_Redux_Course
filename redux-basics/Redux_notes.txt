@@ -1,0 +1,18 @@
+Principles of Redux
+	1) Whether app is simple or complex, app will be represented as a single JavaScript Object.
+		All mutations and changes to to the state are explicit.
+	
+	
+The redux store:
+	1) It holds the current application state object
+	2) It lets you dispatch actions
+	3) Need to specify the reducer
+	
+Reducer - tells how the state is updated with actions
+
+The store has 3 important methods
+	1) getState() - retrieves the current state of the redux store
+		Ex. store.getState();
+	2) dispatch - allows you to dispatch actions to change the state of your application
+		Ex. store.dispatch({ type: 'INCREMENT' });
+	3) subscribe - let's you register a callback that the store will call anytime an action has been dispatched.
