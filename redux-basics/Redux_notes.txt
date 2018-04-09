@@ -1,7 +1,11 @@
 Principles of Redux
 	1) Whether app is simple or complex, app will be represented as a single JavaScript Object.
 		All mutations and changes to to the state are explicit.
-	
+		State/State Tree - Everything that changes in the application (data, UI state) is contained within this object.
+	2) State Tree is redundant, you cannot modify or write to it. Changes to the state have to be dispatched by an action.
+		Action - is a plain JavaScript object describing the change. Must have a type property, suggested to use strings because they are serializable.
+	3) To describe state mutations,you have to write a function that takes the previous state of the app and the action being dispatched to return the next state of the app.
+	This function needs to be pure, meaning the function's return value is solely dependant on the values of the arguments and do not have observable side effects of network or database calls. The arguments are not modified but calculate the new value.
 	
 The redux store:
 	1) It holds the current application state object
