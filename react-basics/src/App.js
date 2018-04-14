@@ -30,9 +30,16 @@ class App extends Component {
       <div className="App">
         <h1>Testing Applications</h1>
         <button onClick={this.switchHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age = {this.state.persons[0].age}/>
-        <Person name={this.state.persons[1].name} age = {this.state.persons[1].age}/>
-        <Person name={this.state.persons[2].name} age = {this.state.persons[2].age}>My Hobbies include kayaking</Person>
+        <Person 
+          name={this.state.persons[0].name} 
+          age = {this.state.persons[0].age}
+          click={this.switchHandler} />
+        <Person 
+          name={this.state.persons[1].name} 
+          age = {this.state.persons[1].age}/>
+        <Person 
+          name={this.state.persons[2].name} 
+          age = {this.state.persons[2].age}>My Hobbies include kayaking</Person>
       </div>
     );
   }
