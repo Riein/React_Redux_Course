@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import './Person.css';
 
 class Person extends Component {
     constructor(props) {
@@ -8,11 +9,12 @@ class Person extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Person">
         <h1>Person Name</h1>
         <p onClick={this.props.click}>Name: {this.props.name}</p>
         <p>Age: {this.props.age}</p>
         <p>{this.props.children}</p>
+        <input type="text" onChange={this.props.changed} value={this.props.name} />
       </div>
     );
   }
