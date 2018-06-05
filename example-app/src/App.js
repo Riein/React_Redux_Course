@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Ready!</h1>
-        <UserInput changed={this.usernameChangeHandler}/>
+        <UserInput value={this.state.username} changed={this.usernameChangeHandler}/>
         <UserOutput value={this.state.username}>All of the sudden there's text</UserOutput>
         <UserOutput value={this.state.username} text2="Some very different text!"/>
       </div>
