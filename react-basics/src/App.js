@@ -31,7 +31,16 @@ class App extends Component {
         {name: "Maxi", age: 17}, 
         {name: event.target.value, age: 29},
         {name: "Peter Pan", age: 23}
-      ]
+      ],
+      otherState: 'some other value',
+      showPersons: false
+    });
+  }
+
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({
+      showPersons: !doesShow
     });
   }
 
@@ -48,7 +57,10 @@ class App extends Component {
         <h1>Testing Applications</h1>
         <button 
         style={style}
-        onClick={this.switchHandler.bind(this, "Steve")}>Switch Name</button>
+        onClick={this.togglePersonsHandler}>Show Persons</button>
+        
+        { this.state.showPersons ?
+        <div >
         <Person 
           name={this.state.persons[0].name} 
           age = {this.state.persons[0].age}
@@ -60,6 +72,9 @@ class App extends Component {
         <Person 
           name={this.state.persons[2].name} 
           age = {this.state.persons[2].age}>My Hobbies include kayaking</Person>
+
+        </div> : null
+      }
       </div>
     );
   }
