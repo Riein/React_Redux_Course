@@ -15,7 +15,8 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons.slice(); // Slice with no arguments will copy the full array and returns a new one.
+    //const persons = this.state.persons.slice(); // Slice with no arguments will copy the full array and returns a new one.
+    const persons = [...this.state.persons]; // ES6 equivalent of the slice approach.
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
   }
