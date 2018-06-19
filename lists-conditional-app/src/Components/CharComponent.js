@@ -1,9 +1,11 @@
 import React from 'react';
 
+import './CharComponent.css';
+
 const CharComponent = (props) => {
 
     return (
-        <div>
+        <div className="CharClass">
             {props.character}
         </div>
     );
