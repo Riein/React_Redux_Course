@@ -17,11 +17,22 @@ class App extends Component {
   }
 
   render() {
+
+    var letters = this.state.value.split("");
+
+    var charList = (
+      <div>
+        {letters.map(ch => {
+          return <CharComponent character={ch} />
+        })}
+      </div>
+    );
+
     return (
       <div className="App">
         <input onChange={this.changeTextHandler} value={this.state.value} />
         <ValidationComponent textLength={this.state.textLength} />
-        <CharComponent character="h" />
+        {charList}
       </div>
     );
   }
