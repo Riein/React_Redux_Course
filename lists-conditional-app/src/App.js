@@ -16,14 +16,20 @@ class App extends Component {
     this.setState({value: txt, textLength: txt.length});
   }
 
+  deleteCharacterHandler = (charIndex) => {
+    console.log(charIndex);
+  }
+
   render() {
 
     var letters = this.state.value.split("");
 
     var charList = (
       <div>
-        {letters.map(ch => {
-          return <CharComponent character={ch} />
+        {letters.map((ch, index) => {
+          return <CharComponent 
+          click={() => this.deleteCharacterHandler(index)}
+          character={ch} />
         })}
       </div>
     );
