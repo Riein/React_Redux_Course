@@ -18,6 +18,8 @@ class App extends Component {
 
   deleteCharacterHandler = (charIndex) => {
     console.log(charIndex);
+    const newValue = this.state.value.slice(0,charIndex) + this.state.value.slice(charIndex + 1);
+    this.setState({value: newValue});
   }
 
   render() {
