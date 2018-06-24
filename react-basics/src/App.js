@@ -71,6 +71,9 @@ class App extends Component {
         </div>
       );
     }
+
+    let classes =['red', 'bold'];
+
     return (
       <div className="App">
         <h1>Testing Applications</h1>
