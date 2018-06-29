@@ -72,11 +72,12 @@ class App extends Component {
       );
     }
 
-    let classes =['red', 'bold'];
+    let classes =['red', 'bold'].join(" ");
 
     return (
       <div className="App">
         <h1>Testing Applications</h1>
+        <p className={classes}>Here we shall learn about the amazingness of React!</p>
         <button 
         style={style}
         onClick={this.togglePersonsHandler}>Show Persons</button>
