@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import './Person.css';
-import Radium from 'radium';
+
 
 
 class Person extends Component {
@@ -11,13 +11,8 @@ class Person extends Component {
 
   render() {
 
-    const style = {
-      '@media (min-width: 500px)': {
-          width: '450px'
-      }
-    }
     return (
-      <div className="Person" style={style}>
+      <div className="Person" >
         <h1>Person Name</h1>
         <p onClick={this.props.click}>Name: {this.props.name}</p>
         <p>Age: {this.props.age}</p>
@@ -28,4 +23,4 @@ class Person extends Component {
   }
 }
 
-export default Radium(Person);
+export default Person;
