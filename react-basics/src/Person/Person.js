@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
-import './Person.css';
+import classes from './Person.css';
 
 
 
@@ -12,7 +11,7 @@ class Person extends Component {
   render() {
 
     return (
-      <div className="Person" >
+      <div className={classes.Person} >
         <h1>Person Name</h1>
         <p onClick={this.props.click}>Name: {this.props.name}</p>
         <p>Age: {this.props.age}</p>
