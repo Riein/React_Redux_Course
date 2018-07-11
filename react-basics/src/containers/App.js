@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-import Person from './Person/Person';
+import classes from './App.css';
+import Person from '../components/Persons/Person/Person';
+import Persons from '../components/Persons/Persons';
 
 class App extends Component {
   constructor() {
@@ -46,36 +47,38 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    }
 
     let persons = null;
+    let btnClass ='';
 
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map((person, index) => {
-            return <Person 
-             click={() => this.deletePersonHandler(index)}
-             name={person.name}
-             age={person.age} 
-             key={person.id}
-             changed={(event) => this.nameChangedHandler(event, person.id)}/>
-          })}
-          
+          <Persons 
+          persons={this.state.persons} 
+          clicked={this.deletePersonHandler}
+          changed={this.nameChangedHandler} />
         </div>
       );
+
+      btnClass = classes.Red;
     }
+
+    let assignedClasses =[];
+
+    if (this.state.persons.length <= 2) {
+      assignedClasses.push( classes.red );
+    }
+    if (this.state.persons.length <= 1) {
+      assignedClasses.push( classes.bold );
+    }
+
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Testing Applications</h1>
+        <p className={assignedClasses.join(' ')}>Here we shall learn about the amazingness of React!</p>
         <button 
-        style={style}
+        className={btnClass}
         onClick={this.togglePersonsHandler}>Show Persons</button>
         
         {persons}
