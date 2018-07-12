@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from '../components/Persons/Person/Person';
 import Persons from '../components/Persons/Persons';
+import Header from '../components/Header/Header';
 
 class App extends Component {
   constructor() {
@@ -49,38 +49,22 @@ class App extends Component {
   render() {
 
     let persons = null;
-    let btnClass ='';
 
     if (this.state.showPersons) {
-      persons = (
-        <div>
+      persons = 
           <Persons 
           persons={this.state.persons} 
           clicked={this.deletePersonHandler}
-          changed={this.nameChangedHandler} />
-        </div>
-      );
+          changed={this.nameChangedHandler} />;
 
-      btnClass = classes.Red;
-    }
-
-    let assignedClasses =[];
-
-    if (this.state.persons.length <= 2) {
-      assignedClasses.push( classes.red );
-    }
-    if (this.state.persons.length <= 1) {
-      assignedClasses.push( classes.bold );
     }
 
     return (
       <div className={classes.App}>
-        <h1>Testing Applications</h1>
-        <p className={assignedClasses.join(' ')}>Here we shall learn about the amazingness of React!</p>
-        <button 
-        className={btnClass}
-        onClick={this.togglePersonsHandler}>Show Persons</button>
-        
+        <Header showPersons={this.state.showPersons} 
+        persons={this.state.persons} 
+        clicked={this.togglePersonsHandler}/>
+
         {persons}
         
       </div>
