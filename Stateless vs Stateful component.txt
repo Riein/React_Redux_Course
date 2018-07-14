@@ -1,0 +1,32 @@
+Stateless vs Stateful Components
+
+Stateful (containers)
+	class XY extends Components
+	Access to State
+	Lifecycle hooks
+	Accesses State and Props via "this"
+	
+	Use this only to manage State or have access to Lifecycle Hooks
+	
+Stateless
+	const XY = (props) => {...}
+	No access to state
+	No lifecycle hooks
+	Accesses Props via "props"
+	
+	Use in all other Cases
+	
+	
+Component Lifecycle
+
+	These lifecycle functions are only available in Stateful Components
+	- constructor()
+	- componentWillMount()
+	- componentWillReceiveProps()
+	- shouldComponentUpdate()
+	- componentWillUpdate()
+	- componentDidUpdate()
+	- componentDidCatch()
+	- componentDidMount()
+	- componentWillUnmount()
+	- render()
