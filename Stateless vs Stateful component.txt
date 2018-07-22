@@ -30,3 +30,10 @@ Component Lifecycle
 	- componentDidMount()
 	- componentWillUnmount()
 	- render()
+	
+	During component creation only constructor, componentWillMount, componentDidMount and render will execute.
+		- Constructor is first and a default ES6 class feature. Creates component and passes on any props. 
+		Use this to set up the state but do not use it to reach out to a web server. Could cause a re-rendering of the application, performance issues, and an unpredictable state.
+		- componentWillMount is not used that often. Update state, last-minute optimization
+		- render is clearly defines how the application should look like. Prepares and structures the JSX code. Renders all child components
+		- componentDidMount allows for side-effects like calling a web server but don't update the state.
