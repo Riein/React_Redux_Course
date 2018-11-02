@@ -4,15 +4,27 @@ import Persons from '../components/Persons/Persons';
 import Header from '../components/Header/Header';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    console.log('[App.js] Inside Constructor', props);
     this.state = {
       persons: [
         {id: '1', name: "Jake", age: 10}, 
         {id: '2', name: "Denny", age: 90},
         {id: '3', name: "Wendys", age: 234}
-      ]
-    }
+      ],
+      otherState: 'some other value',
+      showPersons: false
+    };
+  }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWIllMount');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] Inside componentDidMount');
   }
 
   deletePersonHandler = (personIndex) => {

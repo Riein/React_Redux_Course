@@ -4,8 +4,13 @@ import classes from './Person.css';
 
 
 class Person extends Component {
-    constructor(props) {
-        super();
+
+    componentWillMount() {
+      console.log('[Person.js] Inside componentWillMount');
+    }
+  
+    componentDidMount() {
+      console.log('[Person.js] Inside componentDidMount');
     }
 
   render() {
