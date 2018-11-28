@@ -1,18 +1,44 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classes from './App.css';
-import Person from '../components/Persons/Person/Person';
 import Persons from '../components/Persons/Persons';
+import Header from '../components/Header/Header';
 
-class App extends Component {
-  constructor() {
-    super();
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    console.log('[App.js] Inside Constructor', props);
     this.state = {
       persons: [
         {id: '1', name: "Jake", age: 10}, 
         {id: '2', name: "Denny", age: 90},
         {id: '3', name: "Wendys", age: 234}
-      ]
-    }
+      ],
+      otherState: 'some other value',
+      showPersons: false
+    };
+  }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWIllMount');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] Inside componentDidMount');
+  }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('[Update App.js] inside shouldComponentUpdate', nextProps, nextState);
+  //   return nextState.persons !== this.state.persons ||
+  //   nextState.showPersons !== this.state.showPersons;
+  // }
+
+  componentWillUpdate (nextProps, nextState) {
+    console.log('[Update App.js] inside componentWillUpdate', nextProps)
+  }
+
+  componentDidUpdate () {
+    console.log('[Update App.js] inside componentDidUpdate');
   }
 
   deletePersonHandler = (personIndex) => {
@@ -49,38 +75,22 @@ class App extends Component {
   render() {
 
     let persons = null;
-    let btnClass ='';
 
     if (this.state.showPersons) {
-      persons = (
-        <div>
+      persons = 
           <Persons 
           persons={this.state.persons} 
           clicked={this.deletePersonHandler}
-          changed={this.nameChangedHandler} />
-        </div>
-      );
+          changed={this.nameChangedHandler} />;
 
-      btnClass = classes.Red;
-    }
-
-    let assignedClasses =[];
-
-    if (this.state.persons.length <= 2) {
-      assignedClasses.push( classes.red );
-    }
-    if (this.state.persons.length <= 1) {
-      assignedClasses.push( classes.bold );
     }
 
     return (
       <div className={classes.App}>
-        <h1>Testing Applications</h1>
-        <p className={assignedClasses.join(' ')}>Here we shall learn about the amazingness of React!</p>
-        <button 
-        className={btnClass}
-        onClick={this.togglePersonsHandler}>Show Persons</button>
-        
+        <Header showPersons={this.state.showPersons} 
+        persons={this.state.persons} 
+        clicked={this.togglePersonsHandler}/>
+
         {persons}
         
       </div>
